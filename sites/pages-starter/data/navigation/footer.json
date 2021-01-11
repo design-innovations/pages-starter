@@ -1,0 +1,58 @@
+{
+  "column1": [
+    {
+      "title": "Link 1",
+      "route": "#"
+    },
+    {
+      "title": "Link 2 (external)",
+      "url": "http://designinnovations.net/"
+    },
+    {
+      "title": "Link 3",
+      "route": "#"
+    }
+  ],
+  "column2": [
+    {
+      "title": "Link 4",
+      "route": "#"
+    },
+    {
+      "title": "Link 5",
+      "route": "#"
+    },
+    {
+      "title": "Link 6",
+      "route": "#"
+    }
+  ],
+  "column3": [
+    {
+      "title": "Link 7",
+      "route": "#"
+    },
+    {
+      "title": "Link 8",
+      "route": "#"
+    },
+    {
+      "title": "Link 9",
+      "route": "#"
+    }
+  ],
+  "column4": [
+    {
+      "title": "Link 10",
+      "route": "#"
+    },
+    {
+      "title": "Link 11",
+      "route": "#"
+    },
+    {
+      "title": "Link 12",
+      "route": "#"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+/* tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  /*
+   * Smooth scrolling IF user doesn't have a preference due to motion sensitivities
+  */
+  @media screen and (prefers-reduced-motion: no-preference) {
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+  }
+  /* Boost rendering performance, see: https://web.dev/content-visibility */
+  .main-wrapper,
+  header,
+  aside[role^="comp"],
+  footer {
+    content-visibility: auto;
+  }
+  /* Set the header and footer's intrinsic size so we don't get screen flicker */
+  header {
+    contain-intrinsic-size: 100px;
+  }
+  footer {
+    contain-intrinsic-size: 400px;
+  }
+  /* responsive font size for browsers that understand: https://caniuse.com/mdn-css_types_clamp; */
+  body > * {
+    font-size: clamp(0.75rem, 4vw, 1rem);
+  }
+
+  /* sticky footer
+   * anything we can't add with tailwind
+  */
+  @screen lg {
+    body > footer {
+      position: -webkit-sticky;
+    }
+    _::-webkit-full-page-media, 
+    _:future, 
+    :root footer {
+      @apply static;
+    }
+  }
+  /* Footer illustration */
+  body > footer {
+    background-position: 0 calc(100% - 5rem);
+    background-size: 100vw;
+  }
+  /* Main header story and IN FOUCS area on the homepage */
+  @screen lg {
+    section.hero-alt .hero-image {
+      clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%);
+      transition: 1s;
+    }
+    section.hero-alt:hover .hero-image {
+      clip-path:polygon(0 0, 100% 0%, 100% 100%, 10% 100%);
+    }
+  }
+  /* Produce background pattern on Main header story and IN FOUCS area on the homepage */
+  section.bg-produce {
+    background-blend-mode: multiply;
+  }
+  section.bg-produce h1 {
+    text-shadow:  1px 1px 1px rgba(255, 255, 255, 0.2);
+  }
+  section.bg-produce p {
+    text-shadow:  1px 1px 0 rgba(255, 255, 255,  0.2);
+  }
+  /* Single article featured image */
+  .featured-image {
+    height:33vh;
+  }
+  @screen lg {
+    .featured-image {
+      height:42.86vh;
+    }
+  }
+  /* About us page circles */
+  .circle-text {
+    line-height: 12rem;
+  }
+  /* Elements that don't have a class attribute */
+  h1:not([class]),
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]),
+  h5:not([class]),
+  h6:not([class]) {
+    @apply text-gray-900;
+    font-family:'Raleway';
+  }
+  h1:not([class]) {
+    @apply text-4xl leading-none mb-2;
+  }
+  h2:not([class]) {
+    @apply text-3xl leading-none mb-2;
+  }
+  h3:not([class]) {
+    @apply text-2xl leading-tight mb-3;
+  }
+  h4:not([class]) {
+    @apply text-xl mb-4;
+  }
+  h5:not([class]) {
+    @apply text-lg mb-5;
+  }
+  blockquote:not([class]),
+  label:not([class]),
+  p:not([class]),
+  pre:not([class]),
+  td:not([class]),
+  th:not([class]),
+  ul:not([class]),
+  ol:not([class]) {
+    @apply mb-6;
+  }
+  small:not([class]) {
+    @apply text-sm mb-8;
+  }
+  table:not([class]) {
+    @apply border-collapse mb-6;
+  }
+  td:not([class]),
+  th:not([class]),
+  tr:not([class]) {
+    @apply pr-6;
+  }
+  ul:not([class]) {
+    @apply list-disc list-outside ml-4;
+  }
+  ol:not([class]) {
+    @apply list-decimal list-outside ml-4;
+  }
+  li:focus-within a {
+    @apply outline-none;
+  }
+  ul:not([class]) > li:not([class]) {
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  li:not([class]) > ol:not([class]),
+  li:not([class]) > ul:not([class]) {
+    @apply mx-4 my-2;
+  }
+  a {
+    @apply cursor-pointer;
+  }
+  a:not([class]) {
+    @apply text-green-500 no-underline bg-left-bottom bg-no-repeat;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    transition: background-size .3s;
+  }
+  a:not([class]):hover {
+    background-size: 100% 2px;
+  }
+  a:not([class]):focus {
+    @apply outline-none shadow-outline;
+  }
+  article > img:not([class]) {
+    @apply rounded;
+  }
+  b:not([class]),
+  dt:not([class]),
+  strong:not([class]) {
+    @apply font-semibold;
+  }
+  dl:not([class]) + dl:not([class]) {
+    @apply mt-4;
+  }
+  dt:not([class]) {
+    @apply leading-tight mt-4 mb-1;
+  }
+  dl:not([class]) dt:not([class]):first-child {
+    @apply mt-2;
+  }
+  figure:not([class]) {
+    @apply rounded-lg mb-6;
+  }
+  figcaption:not([class]) {
+    @apply text-center text-sm italic mt-2;
+  }
+  sub:not([class]),
+  sup:not([class]) {
+    @apply text-xs relative align-baseline;
+  }
+  sup:not([class]) {
+      top: -0.5em;
+  }
+  sub:not([class]) {
+      bottom: -0.25em;
+  }
+}
+@layer utilities {
+  /* Plyr.js video player */
+  .plyr {
+    @apply rounded-lg;
+  }
+  /* pagination */
+  .k-pagination__pages li {
+    @apply inline-flex mr-1;
+  }
+  .k-pagination__pages a {
+    @apply rounded py-2 px-4 no-underline bg-none;
+  }
+  .k-pagination__pages a:hover {
+    @apply no-underline;
+  }
+  .k-pagination__pages li.k-is-active a {
+    @apply bg-green-500 text-white;
+  }
+  .k-pagination__pages li:not(.k-is-active):hover a {
+    @apply bg-gray-200;
+  }
+  /* toggle checkboxes used on programs/agrea-1000-strong */
+  .toggle-checkbox:checked {
+    @apply right-0 border-green-500;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply bg-green-500;
+  }
+  /* lazyprogressive images */
+  img.lazyprogressive {
+    @apply bg-cover;
+  }
+}
+/* CSS Vars */
+:root {
+  /* Agrea's main green colours */
+  --green-500:#788023;
+  --lime-500:#C9CA48;
+  /* plyr.js colour override, see: https://css-tricks.com/plyr-css-styleable-video-player */
+  --plyr-color-main: var(--green-500);
+  /* Joomlatools logo colour override used /partials/logo/joomaltools.html.php */
+  --jt-black:var(--green-500);
+  --jt-blue:var(--lime-500);
+}

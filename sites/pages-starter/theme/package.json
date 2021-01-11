@@ -1,0 +1,23 @@
+{
+  "name": "pages-npm-files",
+  "version": "1.0.0",
+  "description": "Additional functionality for Pages theme.",
+  "main": "mason.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@tailwindcss/forms": "0.2.1",
+    "@tailwindcss/typography": "0.3.1",
+    "autoprefixer": "10.2.1",
+    "tailwind-vertical-rhythm": "1.2.0",
+    "tailwindcss": "2.0.2"
+  },
+    "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan Shroyer",
+  "license": "ISC"
+}
